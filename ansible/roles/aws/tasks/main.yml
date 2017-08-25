@@ -1,0 +1,21 @@
+---
+
+- name: Install AWS CLI
+  pip: name=awscli executable=pip3
+
+
+- name: Create AWS configuration directory
+  file: path="/root/.aws" state=directory owner=root group=root mode='0755'
+
+
+- name: Deploy AWS credentials file
+  template: src="credentials" dest="/root/.aws/credentials" owner=root group=root mode='0600'
+
+
+- name: Deploy AWS config file
+  copy: src="config" dest="/root/.aws/config" owner=root group=root mode='0600'
+
+
+- name: Set default AWS CLI profile
+  lineinfile: path=/root/.bashrc line="export AWS_DEFAULT_PROFILE=credstashbot" state=present
+
