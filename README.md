@@ -1,5 +1,3 @@
 Handy bash config files and scripts.
 
-Put them in your home dir and source them, e.g. add this to your ~/.bashrc:
-
-```source ~/.aliases```
+Simply put them in your home directory.
