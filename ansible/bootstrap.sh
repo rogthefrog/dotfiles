@@ -6,7 +6,9 @@ if [ "`whoami`" != "root" ]; then
 fi
 apt install -y ansible \
                git \
+	       python-apt \
                python3 \
+	       python3-apt \
                python3-dev \
                python-pip
 
