@@ -1,0 +1,22 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "workbench.colorTheme": "Winter is Coming (Dark Blue)",
+    "editor.fontFamily": "'Cousine Regular', 'Ubuntu Mono', Inconsolata, Consolas",
+    "editor.fontSize": 14,
+    "editor.autoClosingBrackets": false,
+    "editor.emptySelectionClipboard": false,
+    "editor.minimap.enabled": false,
+    "editor.mouseWheelZoom": true,
+    "window.menuBarVisibility": "visible",
+    "window.restoreWindows": "all",
+    "files.eol": "\n",
+    "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
+    "html.autoClosingTags": false,
+    "html.format.endWithNewline": true,
+    "html.format.indentInnerHtml": true,
+    "terminal.external.windowsExec": "C:\\Windows\\System32\\bash.exe",
+    "terminal.integrated.shell.windows": "C:\\Windows\\System32\\bash.exe",
+    "sortLines.filterBlankLines": true
+}

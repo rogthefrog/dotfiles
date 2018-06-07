@@ -1,0 +1,142 @@
+[
+  {
+    "metadata": {
+      "id": "b689fcc8-d494-4dbf-a228-2c694a578afc",
+      "publisherId": "alefragnani.Bookmarks",
+      "publisherDisplayName": "alefragnani"
+    },
+    "name": "Bookmarks",
+    "publisher": "alefragnani",
+    "version": "0.19.1"
+  },
+  {
+    "metadata": {
+      "id": "e337c67b-55c2-4fef-8949-eb260e7fb7fd",
+      "publisherId": "Shan.code-settings-sync",
+      "publisherDisplayName": "Shan"
+    },
+    "name": "code-settings-sync",
+    "publisher": "Shan",
+    "version": "2.9.2"
+  },
+  {
+    "metadata": {
+      "id": "c4e31168-d200-4020-ae9e-1aa7b76d2c52",
+      "publisherId": "vangware.dark-plus-material",
+      "publisherDisplayName": "vangware"
+    },
+    "name": "dark-plus-material",
+    "publisher": "vangware",
+    "version": "1.1.3"
+  },
+  {
+    "metadata": {
+      "id": "3e891cf9-53cb-49a3-8d01-8f0b1f0afb29",
+      "publisherId": "codezombiech.gitignore",
+      "publisherDisplayName": "codezombiech"
+    },
+    "name": "gitignore",
+    "publisher": "codezombiech",
+    "version": "0.5.0"
+  },
+  {
+    "metadata": {
+      "id": "3b1db1fc-c7f7-4bd6-9fa4-b499dfa99a8a",
+      "publisherId": "shd101wyy.markdown-preview-enhanced",
+      "publisherDisplayName": "shd101wyy"
+    },
+    "name": "markdown-preview-enhanced",
+    "publisher": "shd101wyy",
+    "version": "0.3.5"
+  },
+  {
+    "metadata": {
+      "id": "b027c4b2-25ad-46db-b574-05dae3b2dc92",
+      "publisherId": "azemoh.one-monokai",
+      "publisherDisplayName": "azemoh"
+    },
+    "name": "one-monokai",
+    "publisher": "azemoh",
+    "version": "0.3.4"
+  },
+  {
+    "metadata": {
+      "id": "00518570-772b-4ccb-8b06-d056f3f556e0",
+      "publisherId": "Tyriar.sort-lines",
+      "publisherDisplayName": "Tyriar"
+    },
+    "name": "sort-lines",
+    "publisher": "Tyriar",
+    "version": "1.7.0"
+  },
+  {
+    "metadata": {
+      "id": "4a23294b-fd16-4c51-9759-da9936474cf8",
+      "publisherId": "mauve.terraform",
+      "publisherDisplayName": "mauve"
+    },
+    "name": "terraform",
+    "publisher": "mauve",
+    "version": "1.1.2"
+  },
+  {
+    "metadata": {
+      "id": "3397d2da-b0a8-4880-9e63-40d3109d5d14",
+      "publisherId": "ms-vscode.Theme-MaterialKit",
+      "publisherDisplayName": "ms-vscode"
+    },
+    "name": "Theme-MaterialKit",
+    "publisher": "ms-vscode",
+    "version": "0.1.4"
+  },
+  {
+    "metadata": {
+      "id": "2b05803e-d7e9-433f-bce9-255e4d4ad79e",
+      "publisherId": "vscoss.vscode-ansible",
+      "publisherDisplayName": "vscoss"
+    },
+    "name": "vscode-ansible",
+    "publisher": "vscoss",
+    "version": "0.2.6"
+  },
+  {
+    "metadata": {
+      "id": "0479fc1c-3d67-49f9-b087-fb9069afe48f",
+      "publisherId": "PeterJausovec.vscode-docker",
+      "publisherDisplayName": "PeterJausovec"
+    },
+    "name": "vscode-docker",
+    "publisher": "PeterJausovec",
+    "version": "0.0.27"
+  },
+  {
+    "metadata": {
+      "id": "829a192d-496c-44ac-87f3-0a84ce36a853",
+      "publisherId": "emmanuelbeziat.vscode-great-icons",
+      "publisherDisplayName": "emmanuelbeziat"
+    },
+    "name": "vscode-great-icons",
+    "publisher": "emmanuelbeziat",
+    "version": "2.1.33"
+  },
+  {
+    "metadata": {
+      "id": "c856990a-978d-46eb-aa5e-318cd7bfecc6",
+      "publisherId": "shanoor.vscode-nginx",
+      "publisherDisplayName": "shanoor"
+    },
+    "name": "vscode-nginx",
+    "publisher": "shanoor",
+    "version": "0.5.0"
+  },
+  {
+    "metadata": {
+      "id": "fd6d3dc6-b307-4589-82a6-78e2afec3d77",
+      "publisherId": "johnpapa.winteriscoming",
+      "publisherDisplayName": "johnpapa"
+    },
+    "name": "winteriscoming",
+    "publisher": "johnpapa",
+    "version": "0.7.1"
+  }
+]
