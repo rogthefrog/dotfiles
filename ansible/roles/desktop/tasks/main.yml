@@ -1,0 +1,48 @@
+---
+
+# using raw because dnf module fails even with python3-dnf installed
+# and I don't have time to fix that
+# fatal: [127.0.0.1]: FAILED! => {"changed": false, "msg": "Could not import the dnf python module. Please install `python3-dnf` package.", "results": []}
+
+- name: Install Brave browser
+  raw: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/ && rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc && dnf install -y brave-browser brave-keyring
+
+- name: Install Chrome browser
+  raw: dnf install -y fedora-workstation-repositories && dnf config-manager --set-enabled google-chrome && dnf install -y google-chrome-stable
+
+- name: Install Latte Dock
+  raw: dnf install -y latte-dock
+  
+- name: Install Albert launcher
+  raw: rpm --import https://build.opensuse.org/projects/home:manuelschneid3r/public_key && dnf config-manager --add-repo https://download.opensuse.org/repositories/home:manuelschneid3r/Fedora_Rawhide/home:manuelschneid3r.repo && dnf install -y albert
+
+- name: Install bleachbit
+  raw: dnf install -y bleachbit
+
+- name: Install neofetch
+  raw: dnf copr enable -y konimex/neofetch && dnf install -y neofetch
+
+- name: Install shutter for screenshots
+  raw: dnf install -y shutter
+
+- name: Install Remmina for RDP
+  raw: dnf copr enable -y hubbitus/remmina-next && dnf upgrade --refresh 'remmina*' 'freerdp*'
+
+- name: Install OnlyOffice
+  raw: dnf install -y boost-filesystem dejavu-lgc-sans-fonts  dejavu-lgc-sans-mono-fonts dejavu-lgc-serif-fonts gtkglext-libs && rpm -i https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors.x86_64.rpm
+
+- name: Install Ubuntu fonts
+  raw: mkdir -p /usr/share/fonts/Ubuntu && wget https://assets.ubuntu.com/v1/fad7939b-ubuntu-font-family-0.83.zip -O /tmp/ubuntu_fonts.zip && unzip /tmp/ubuntu_fonts.zip -d /usr/share/fonts/Ubuntu/
+
+- name: Install Google fonts
+  raw: dnf install -y google-droid-*-fonts
+
+- name: Install Microsoft fonts
+  raw: dnf install -y curl cabextract xorg-x11-font-utils fontconfig && rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+  
+- name: Rebuild font cache
+  raw: fc-cache -v
+
+- name: Install multimedia codecs
+  raw: dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras ffmpeg
+
