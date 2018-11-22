@@ -1,7 +1,12 @@
 ---
 
-- name: Install AWS cli
-  raw: dnf install -y awscli
+- name: Install VS Code repo
+  raw: rpm --import https://packages.microsoft.com/keys/microsoft.asc && sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+- name: Install AWS CLI, vim, VS Code and other tools
+  dnf:
+    name: ['awscli', 'code', 'roxterm',  'terminator', 'vim']
+    state: present
 
 - name: Create AWS cli config dir
   file:
@@ -29,15 +34,6 @@
     mode: 0600
     force: no
 
-- name: Install vim
-  raw: dnf install -y vim
-
-- name: Install VS Code
-  raw: rpm --import https://packages.microsoft.com/keys/microsoft.asc && sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo' && dnf check-update && dnf install -y code
-
-- name: Install terminals
-  raw: dnf install -y terminator roxterm
-
 - name: Install terminal color schemes
   raw: rm -rf /tmp/iTerm2-Color-Schemes && git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git /tmp/iTerm2-Color-Schemes && cp /tmp/iTerm2-Color-Schemes/konsole/*.colorscheme /usr/share/konsole/
 
@@ -54,4 +50,3 @@
     line: 'source ~/.bash_colors'
     owner: "{{ unix_user }}"
     group: "{{ unix_user }}"
-
