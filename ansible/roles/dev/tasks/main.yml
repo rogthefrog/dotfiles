@@ -54,3 +54,4 @@
     line: 'source ~/.bash_colors'
     owner: "{{ unix_user }}"
     group: "{{ unix_user }}"
+

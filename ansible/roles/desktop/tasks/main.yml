@@ -32,3 +32,4 @@
 
 - name: Install Telegram
   raw: dnf copr enable -y rommon/telegram && dnf install -y telegram-desktop
+

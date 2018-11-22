@@ -23,3 +23,4 @@ pip3 install --upgrade pip
 pip3 install ansible
 
 echo "Now activate the virtual env and run ansible playbooks."
+
