@@ -3,6 +3,32 @@
 - name: Install AWS cli
   raw: dnf install -y awscli
 
+- name: Create AWS cli config dir
+  file:
+    path: /home/roger/.aws
+    owner: roger
+    group: roger
+    mode: 0755
+    state: directory
+
+- name: Create AWS cli config file
+  template:
+    src: aws/config
+    dest: /home/roger/.aws/config
+    owner: roger
+    group: roger
+    mode: 0600
+    force: no
+
+- name: Create AWS cli credentials file
+  template:
+    src: aws/credentials
+    dest: /home/roger/.aws/credentials
+    owner: roger
+    group: roger
+    mode: 0600
+    force: no
+
 - name: Install vim
   raw: dnf install -y vim
 
@@ -19,8 +45,12 @@
   template:
     src: .bash_colors
     dest: /home/roger/.bash_colors
+    owner: roger
+    group: roger
 
 - name: Make sure bash color schemes are loaded
   lineinfile:
     path: /home/roger/.bashrc
     line: 'source ~/.bash_colors'
+    owner: roger
+    group: roger
