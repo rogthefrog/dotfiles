@@ -3,7 +3,7 @@
 
 sudo dnf update -y
 
-sudo dnf install -y python3 python3-dnf dnf-plugins-core
+sudo dnf install -y git python3 python3-dnf dnf-plugins-core
 
 rm -rf ./venv
 
