@@ -23,3 +23,4 @@
 
 - name: Rebuild font cache
   raw: fc-cache -v
+
