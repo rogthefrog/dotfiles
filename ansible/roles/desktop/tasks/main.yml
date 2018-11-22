@@ -1,35 +1,55 @@
 ---
 
-- name: Install Brave browser
-  raw: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/ && rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc && dnf install -y brave-browser brave-keyring
+- name: Enable Brave repo persistently
+  raw: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/ && rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
 
-- name: Install Chrome browser
-  raw: dnf install -y fedora-workstation-repositories && dnf config-manager --set-enabled google-chrome && dnf install -y google-chrome-stable
+- name: Enable Chrome repo persistently
+  raw: dnf config-manager --set-enabled google-chrome
 
-- name: Install Latte Dock
-  raw: dnf install -y latte-dock
-  
-- name: Install Albert launcher
-  raw: rpm --import https://build.opensuse.org/projects/home:manuelschneid3r/public_key && dnf config-manager --add-repo https://download.opensuse.org/repositories/home:manuelschneid3r/Fedora_Rawhide/home:manuelschneid3r.repo && dnf install -y albert
+- name: Enable Albert repo persistently
+  raw: rpm --import https://build.opensuse.org/projects/home:manuelschneid3r/public_key && dnf config-manager --add-repo https://download.opensuse.org/repositories/home:manuelschneid3r/Fedora_Rawhide/home:manuelschneid3r.repo
 
-- name: Install bleachbit
-  raw: dnf install -y bleachbit
+- name: Enable neofetch repo persistently
+  raw: dnf copr enable -y konimex/neofetch
 
-- name: Install neofetch
-  raw: dnf copr enable -y konimex/neofetch && dnf install -y neofetch
+- name: Enable Remmina repo persistently
+  raw: dnf copr enable -y hubbitus/remmina-next
 
-- name: Install shutter for screenshots
-  raw: dnf install -y shutter
+- name: Enable Telegram repo persistently
+  raw: dnf copr enable -y rommon/telegram
 
-- name: Install Remmina for RDP
-  raw: dnf copr enable -y hubbitus/remmina-next && dnf upgrade --refresh 'remmina*' 'freerdp*'
+- name: Enable RPM Fusion
+  raw: >
+    dnf install -y
+    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+    https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+- name: Install browsers and other desktop apps
+  dnf:
+    state: present
+    name:
+      - albert
+      - bleachbit
+      - boost-filesystem
+      - brave-browser
+      - brave-keyring
+      - fedora-workstation-repositories
+      - ffmpeg
+      - google-chrome-stable
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-bad-freeworld
+      - gstreamer1-plugins-bad-free-extras
+      - gstreamer1-plugins-base
+      - gstreamer1-plugins-good
+      - gstreamer1-plugins-ugly
+      - gtkglext-libs
+      - latte-dock
+      - neofetch
+      - remmina
+      - shutter
+      - telegram-desktop
 
 - name: Install OnlyOffice
-  raw: dnf install -y boost-filesystem gtkglext-libs && rpm -i https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors.x86_64.rpm
-
-- name: Install multimedia codecs
-  raw: dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm gstreamer1-plugins-base gstreamer1-plugins-good gstreamer1-plugins-ugly gstreamer1-plugins-bad-free gstreamer1-plugins-bad-freeworld gstreamer1-plugins-bad-free-extras ffmpeg
-
-- name: Install Telegram
-  raw: dnf copr enable -y rommon/telegram && dnf install -y telegram-desktop
-
+  dnf:
+    state: present
+    name: https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors.x86_64.rpm
