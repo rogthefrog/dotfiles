@@ -45,9 +45,11 @@
       - gtkglext-libs
       - latte-dock
       - neofetch
+      - pidgin
       - remmina
       - shutter
       - telegram-desktop
+      - thunderbird
 
 - name: Install OnlyOffice
   dnf:
