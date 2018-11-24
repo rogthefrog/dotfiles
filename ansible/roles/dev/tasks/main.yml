@@ -5,7 +5,7 @@
 
 - name: Install AWS CLI, vim, VS Code and other tools
   dnf:
-    name: ['awscli', 'code', 'roxterm',  'terminator', 'vim']
+    name: ['awscli', 'code', 'qterminal',  'terminator', 'vim']
     state: present
 
 - name: Create AWS cli config dir
