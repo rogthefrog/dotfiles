@@ -38,7 +38,7 @@
       - boost-filesystem
       - brave-browser
       - brave-keyring
-      - fedora-workstation-repositories
+      - clementine
       - ffmpeg
       - google-chrome-stable
       - gstreamer1-plugins-bad-free
