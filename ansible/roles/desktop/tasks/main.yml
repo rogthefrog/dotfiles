@@ -48,9 +48,10 @@
       - gstreamer1-plugins-good
       - gstreamer1-plugins-ugly
       - gtkglext-libs
-      - latte-dock
+      - menulibre
       - neofetch
       - pidgin
+      - plank
       - remmina
       - shutter
       - telegram-desktop
