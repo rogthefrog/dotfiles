@@ -1,0 +1,41 @@
+---
+
+- name: Install music software
+  dnf:
+    state: present
+    name:
+      - ardour5
+      - audacity
+      - freqtweak
+      - guitarix
+      - hydrogen
+      - jack-audio-connection-kit-dbus
+      - qtractor
+      - rosegarden4
+      - rosegarden4-feta-fonts
+      - rosegarden4-parmesan-fonts
+      - tuxguitar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
