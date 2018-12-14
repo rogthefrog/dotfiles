@@ -86,4 +86,4 @@ PathFull="\W"
 NewLine="\n"
 Jobs="\j"
 
-
+export PS1="$ICyan\\u$ICyan$Color_Off$IBlack@$IBlack$Color_Off$IBlue\\h$IBlue$Color_Off$IBlack:$IBlack$Color_Off$BIYellow\w \$$IYellow$Color_Off "
