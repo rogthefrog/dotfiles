@@ -50,6 +50,7 @@
       - gtkglext-libs
       - menulibre
       - neofetch
+      - nomacs
       - pidgin
       - plank
       - remmina
