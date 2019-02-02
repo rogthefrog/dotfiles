@@ -40,6 +40,7 @@
       - brave-keyring
       - clementine
       - ffmpeg
+      - flameshot
       - google-chrome-stable
       - gstreamer1-plugins-bad-free
       - gstreamer1-plugins-bad-freeworld
@@ -63,3 +64,10 @@
     state: present
     name: https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors.x86_64.rpm
 
+# todo automate the last step
+# https://github.com/lupoDharkael/flameshot#on-kde-plasma-desktop
+- name: Download Flameshot config file
+  get_url:
+    url: https://raw.githubusercontent.com/lupoDharkael/flameshot/master/docs/shortcuts-config/flameshot-shortcuts-kde
+    dest: /etc/flameshot_shortcuts.conf
+    mode: 0644
