@@ -1,0 +1,78 @@
+---
+
+- name: Install plank
+  dnf:
+    state: present
+    name:
+      - plank
+
+# details https://wiki.archlinux.org/index.php/Plank#Configuration
+- name: Ensure launcher desktop item directory exists
+  file:
+    path:  "{{ unix_home }}/.local/share/applications/plank"
+    state: directory
+    owner: "{{ unix_user }}"
+    group: "{{ unix_group }}"
+    mode: 0775
+
+- name: Copy launcher items
+  template:
+    src: "desktop/{{ item }}"
+    dest: "{{ unix_home }}/.local/share/applications/plank/{{ item }}"
+    owner: "{{ unix_user }}"
+    mode: 0664
+  with_items:
+      - brave-browser.desktop
+      - clementine.desktop
+      - code.desktop
+      - exaile.desktop
+      - google-chrome.desktop
+      - menulibre-dolphin.desktop
+      - mozilla-thunderbird.desktop
+      - org.kde.konsole.desktop
+      - org.remmina.Remmina.desktop
+      - pidgin.desktop
+      - telegram-desktop.desktop
+
+- name: Create Plank launcher directory
+  file:
+    path: "{{ unix_home }}/.config/plank/dock2/launchers"
+    state: directory
+    owner: "{{ unix_user }}"
+    group: "{{ unix_group }}"
+    mode: 0775
+
+- name: Copy launchers
+  template:
+    src: "dockitems/{{ item }}"
+    dest: "{{ unix_home }}/.config/plank/dock2/launchers/{{ item }}"
+    owner: "{{ unix_user }}"
+    mode: 0664
+  with_items:
+      - brave-browser.dockitem
+      - clementine.dockitem
+      - code.dockitem
+      - exaile.dockitem
+      - google-chrome.dockitem
+      - menulibre-dolphin.dockitem
+      - mozilla-thunderbird.dockitem
+      - org.kde.konsole.dockitem
+      - org.remmina.Remmina.dockitem
+      - pidgin.dockitem
+      - telegram-desktop.dockitem
+
+- name: Copy Plank conf file
+  template:
+    src: plank.conf
+    dest: "{{ unix_home }}/.plank.conf"
+    owner: "{{ unix_user }}"
+    group: "{{ unix_group }}"
+    mode: 0755
+
+- name: Configure Plank dock
+  become_user: "{{ unix_user }}"
+  raw: cat "{{ unix_home }}/.plank.conf" | dconf load /net/launchpad/plank/docks/
+
+- name: Run Plank dock
+  become_user: "{{ unix_user }}"
+  shell: "(nohup plank -n dock2 </dev/null >/dev/null 2>&1 &)"
