@@ -39,6 +39,7 @@
       - brave-browser
       - brave-keyring
       - clementine
+      - exaile
       - ffmpeg
       - flameshot
       - google-chrome-stable
@@ -53,7 +54,6 @@
       - neofetch
       - nomacs
       - pidgin
-      - plank
       - remmina
       - shutter
       - telegram-desktop
