@@ -1,2 +1,2 @@
 [PlankDockItemPreferences]
-Launcher=file:///home/roger/.local/share/applications/menulibre-dolphin.desktop
+Launcher=file://{{ unix_home }}/.local/share/applications/menulibre-dolphin.desktop
