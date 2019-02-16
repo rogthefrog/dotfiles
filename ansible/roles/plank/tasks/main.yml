@@ -36,7 +36,7 @@
 
 - name: Create Plank launcher directory
   file:
-    path: "{{ unix_home }}/.config/plank/dock2/launchers"
+    path: "{{ unix_home }}/.config/plank/dock1/launchers"
     state: directory
     owner: "{{ unix_user }}"
     group: "{{ unix_group }}"
@@ -45,7 +45,7 @@
 - name: Copy launchers
   template:
     src: "dockitems/{{ item }}"
-    dest: "{{ unix_home }}/.config/plank/dock2/launchers/{{ item }}"
+    dest: "{{ unix_home }}/.config/plank/dock1/launchers/{{ item }}"
     owner: "{{ unix_user }}"
     mode: 0664
   with_items:
@@ -75,4 +75,4 @@
 
 - name: Run Plank dock
   become_user: "{{ unix_user }}"
-  shell: "(nohup plank -n dock2 </dev/null >/dev/null 2>&1 &)"
+  shell: "(nohup plank -n dock1 </dev/null >/dev/null 2>&1 &)"
