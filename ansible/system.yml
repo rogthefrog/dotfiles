@@ -1,0 +1,12 @@
+---
+- hosts: 127.0.0.1
+  connection: local
+  become: yes
+  # workaround for selinux issue when copying a file to a privileged dir
+  # and python3-dnf not found errors
+  vars:
+    ansible_python_interpreter: "/usr/bin/python3"
+    unix_user: "roger"
+    unix_home: "/home/roger"
+  roles:
+    - system

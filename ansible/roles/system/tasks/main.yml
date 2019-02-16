@@ -1,0 +1,12 @@
+---
+
+- name: install dnf-automatic for background updates
+  dnf:
+    state: present
+    name: dnf-automatic
+
+- name: enable automatic dnf updates
+  systemd:
+    name: dnf-automatic-download.timer
+    state: started
+    enabled: yes
