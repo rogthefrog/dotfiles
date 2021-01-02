@@ -1,8 +1,9 @@
 {
     "telemetry.enableTelemetry": false,
     "telemetry.enableCrashReporter": false,
-    "workbench.colorTheme": "Winter is Coming (Dark Blue)",
-    "editor.fontFamily": "'Cousine Regular', 'Ubuntu Mono', Inconsolata, Consolas",
+    "editor.fontFamily": "'Ubuntu Mono', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "workbench.colorTheme": "Visible Comments Nord Deep",
+    "workbench.iconTheme": "vscode-icons",
     "editor.fontSize": 14,
     "editor.autoClosingBrackets": false,
     "editor.emptySelectionClipboard": false,
@@ -31,5 +32,28 @@
     "sync.lastUpload": "2018-06-07T03:29:05.998Z",
     "sync.lastDownload": "",
     "sync.forceDownload": false,
-    "files.insertFinalNewline": true
+    "files.insertFinalNewline": true,
+    "colorInfo.languages": [
+
+        {
+            "selector": "css",
+            "colors": "css"
+        },
+        {
+            "selector": "qss",
+            "colors": "css"
+        },
+        {
+            "selector": "sass",
+            "colors": "css"
+        },
+        {
+            "selector": "scss",
+            "colors": "css"
+        },
+        {
+            "selector": "less",
+            "colors": "css"
+        }
+    ]
 }
