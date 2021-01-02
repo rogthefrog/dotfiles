@@ -1,0 +1,2 @@
+[PlankDockItemPreferences]
+Launcher=file://{{ unix_home }}/.local/share/applications/plank/exaile.desktop

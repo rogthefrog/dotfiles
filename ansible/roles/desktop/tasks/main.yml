@@ -1,0 +1,73 @@
+---
+
+- name: Enable Brave repo persistently
+  raw: dnf config-manager --add-repo https://brave-browser-rpm-release.s3.brave.com/x86_64/ && rpm --import https://brave-browser-rpm-release.s3.brave.com/brave-core.asc
+
+- name: install repo for Chrome
+  dnf:
+    state: present
+    name: fedora-workstation-repositories
+
+- name: Enable Chrome repo persistently
+  raw: dnf config-manager --set-enabled google-chrome
+
+- name: Enable Albert repo persistently
+  raw: rpm --import https://build.opensuse.org/projects/home:manuelschneid3r/public_key && dnf config-manager --add-repo https://download.opensuse.org/repositories/home:manuelschneid3r/Fedora_Rawhide/home:manuelschneid3r.repo
+
+- name: Enable neofetch repo persistently
+  raw: dnf copr enable -y konimex/neofetch
+
+- name: Enable Remmina repo persistently
+  raw: dnf copr enable -y hubbitus/remmina-next
+
+- name: Enable Telegram repo persistently
+  raw: dnf copr enable -y rommon/telegram
+
+- name: Enable RPM Fusion
+  raw: >
+    dnf install -y
+    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
+    https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+- name: Install browsers and other desktop apps
+  dnf:
+    state: present
+    name:
+      - albert
+      - bleachbit
+      - boost-filesystem
+      - brave-browser
+      - brave-keyring
+      - clementine
+      - exaile
+      - ffmpeg
+      - flameshot
+      - google-chrome-stable
+      - gstreamer1-plugins-bad-free
+      - gstreamer1-plugins-bad-freeworld
+      - gstreamer1-plugins-bad-free-extras
+      - gstreamer1-plugins-base
+      - gstreamer1-plugins-good
+      - gstreamer1-plugins-ugly
+      - gtkglext-libs
+      - menulibre
+      - neofetch
+      - nomacs
+      - pidgin
+      - remmina
+      - shutter
+      - telegram-desktop
+      - thunderbird
+
+- name: Install OnlyOffice
+  dnf:
+    state: present
+    name: https://download.onlyoffice.com/install/desktop/editors/linux/onlyoffice-desktopeditors.x86_64.rpm
+
+# todo automate the last step
+# https://github.com/lupoDharkael/flameshot#on-kde-plasma-desktop
+- name: Download Flameshot config file
+  get_url:
+    url: https://raw.githubusercontent.com/lupoDharkael/flameshot/master/docs/shortcuts-config/flameshot-shortcuts-kde
+    dest: /etc/flameshot_shortcuts.conf
+    mode: 0644

@@ -1,4 +1,0 @@
----
-
-- name: Install AWS CLI
-  pip: name=awscli executable=pip3

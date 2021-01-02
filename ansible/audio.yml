@@ -6,10 +6,5 @@
   # and python3-dnf not found errors  vars:
   vars:
     ansible_python_interpreter: "/usr/bin/python3"
-    unix_user: "roger"
-    unix_group: "roger"
-    unix_home: "/home/roger"
   roles:
-    - desktop
-    - fonts
-    - plank
+    - audio

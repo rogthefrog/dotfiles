@@ -1,0 +1,15 @@
+[Desktop Entry]
+Version=1.0
+Name=Telegram Desktop
+GenericName=Telegram Desktop
+Comment=Official desktop version of Telegram messaging app
+Exec=/usr/bin/telegram-desktop -- %u
+Icon=telegram-desktop
+Terminal=false
+StartupWMClass=TelegramDesktop
+Type=Application
+Categories=Network;InstantMessaging;Qt;
+MimeType=x-scheme-handler/tg;
+Keywords=tg;chat;im;messaging;messenger;sms;tdesktop;
+X-GNOME-UsesNotifications=true
+X-Desktop-File-Install-Version=0.23

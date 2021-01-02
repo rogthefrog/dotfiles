@@ -1,0 +1,53 @@
+---
+
+- name: Install VS Code repo
+  raw: rpm --import https://packages.microsoft.com/keys/microsoft.asc && sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
+
+- name: Install AWS CLI, vim, VS Code and other tools
+  dnf:
+    name: ['awscli', 'code', 'qterminal',  'terminator', 'vim', 'xclip']
+    state: present
+
+- name: Create AWS cli config dir
+  file:
+    path: "{{ unix_home }}/.aws"
+    owner: "{{ unix_user }}"
+    group: "{{ unix_user }}"
+    mode: 0755
+    state: directory
+
+- name: Create AWS cli config file
+  template:
+    src: aws/config
+    dest: "{{ unix_home }}/.aws/config"
+    owner: "{{ unix_user }}"
+    group: "{{ unix_user }}"
+    mode: 0600
+    force: no
+
+- name: Create AWS cli credentials file
+  template:
+    src: aws/credentials
+    dest: "{{ unix_home }}/.aws/credentials"
+    owner: "{{ unix_user }}"
+    group: "{{ unix_user }}"
+    mode: 0600
+    force: no
+
+- name: Install terminal color schemes
+  raw: rm -rf /tmp/iTerm2-Color-Schemes && git clone https://github.com/mbadolato/iTerm2-Color-Schemes.git /tmp/iTerm2-Color-Schemes && cp /tmp/iTerm2-Color-Schemes/konsole/*.colorscheme /usr/share/konsole/
+
+- name: Install bash color schemes
+  template:
+    src: .bash_colors
+    dest: "{{ unix_home }}/.bash_colors"
+    owner: "{{ unix_user }}"
+    group: "{{ unix_user }}"
+
+- name: Make sure bash color schemes are loaded
+  lineinfile:
+    path: "{{ unix_home }}/.bashrc"
+    line: 'source ~/.bash_colors'
+    owner: "{{ unix_user }}"
+    group: "{{ unix_user }}"
+

@@ -1,0 +1,26 @@
+---
+
+- name: Install fonts for OnlyOffice
+  raw: dnf install -y dejavu-lgc-sans-fonts dejavu-lgc-sans-mono-fonts dejavu-lgc-serif-fonts
+
+- name: Install Ubuntu fonts
+  raw: dnf install -y ubuntu-fonts ubuntu-title-fonts
+
+- name: Install Google fonts
+  raw: dnf install -y google-droid-*-fonts
+
+- name: Install Microsoft fonts
+  raw: dnf install -y curl cabextract xorg-x11-font-utils fontconfig && rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+  ignore_errors: yes
+
+- name: Fix ugly fonts part 1
+  raw: dnf copr -y enable dawid/better_fonts && dnf install -y libselinux-python fontconfig-enhanced-defaults fontconfig-font-replacements http://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm http://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm freetype-freeworld
+
+- name: Fix ugly fonts part 2
+  template:
+    src: local.conf
+    dest: /etc/fonts/local.conf
+
+- name: Rebuild font cache
+  raw: fc-cache -v
+

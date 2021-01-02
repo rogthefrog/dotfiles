@@ -1,17 +1,26 @@
 #!/bin/bash
-# bootstrap your Ubuntu VM
-if [ "`whoami`" != "root" ]; then
-  echo "Must run as root: sudo $0"
-  exit 1
-fi
-apt install -y ansible \
-               git \
-	       python-apt \
-               python3 \
-	       python3-apt \
-               python3-dev \
-               python-pip
+# bootstrap your Fedora desktop
 
-pip install --upgrade pip
+sudo dnf update -y
 
-pip install virtualenv
+sudo dnf install -y \
+    dnf-plugins-core \
+    git \
+    libselinux-python \
+    libselinux-python3 \
+    python3 \
+    python3-dnf
+
+
+rm -rf ./venv
+
+python3 -m venv ./venv
+
+. ./venv/bin/activate
+
+pip3 install --upgrade pip
+
+pip3 install ansible
+
+echo "Now activate the virtual env and run ansible playbooks."
+

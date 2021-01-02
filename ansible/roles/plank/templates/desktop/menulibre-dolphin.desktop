@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.1
+Type=Application
+Name=Dolphin
+Comment=Dolphin file manager
+Icon=krusader_user
+Exec=dolphin %u
+Actions=
+Categories=menulibre-favorites;
