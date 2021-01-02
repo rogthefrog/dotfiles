@@ -18,4 +18,10 @@ Ansible playbooks to automate Linux workstation setups. Code likely rotten.
 Miscellaneous tweaks to make a Linux workstation look and feel usable.
 Instructions in README files therein.
 
+### kde
 
+Color scheme for KDE Plasma.
+
+### albert
+
+Nord color schemes for Albert launcher.
