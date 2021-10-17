@@ -44,3 +44,7 @@ Installer for Microsoft Core Fonts.
 ### kde
 
 Color scheme for KDE Plasma.
+
+### wsl2
+
+Scripts to make wsl2 work better than out of the box.
